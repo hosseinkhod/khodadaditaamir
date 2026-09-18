@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>تعمیرگاه تخصصی خدادادی | تعمیر پکیج، یخچال، لباسشویی، بخاری و قطعات یدکی</title>
+<meta name="description" content="تعمیر تخصصی پکیج، یخچال، لباسشویی و بخاری با تکنسین‌های مجرب، خدمات فوری، ضمانت معتبر و تامین قطعات یدکی اورجینال در تعمیرگاه خدادادی." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#14181f;
+    --steel:#232b35;
+    --paper:#f3f1ec;
+    --card:#ffffff;
+    --muted:#5b6472;
+    --border:#e5e2da;
+    --ember:#ff5f2e;
+    --ember-dark:#dd4118;
+    --ember-soft:rgba(255,95,46,.12);
+    --frost:#1fa8b8;
+    --frost-soft:rgba(31,168,184,.13);
+    --radius:16px;
+    --shadow:0 10px 30px rgba(20,24,31,.08);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Vazirmatn',Tahoma,Arial,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.85;
+    direction:rtl;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  button{font-family:inherit;cursor:pointer;}
+  .container{max-width:1180px;margin:0 auto;padding:0 22px;}
+  .icon{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
+  :focus-visible{outline:3px solid var(--frost);outline-offset:2px;}
+
+  /* ===== Buttons ===== */
+  .btn{display:inline-flex;align-items:center;gap:8px;justify-content:center;padding:13px 26px;border-radius:11px;font-weight:700;font-size:.96rem;border:2px solid transparent;transition:transform .2s ease, background .2s ease, color .2s ease;}
+  .btn-primary{background:var(--ember);color:#fff;}
+  .btn-primary:hover{background:var(--ember-dark);transform:translateY(-2px);}
+  .btn-secondary{background:transparent;color:var(--ink);border-color:var(--ink);}
+  .btn-secondary:hover{background:var(--ink);color:#fff;}
+  .btn-block{width:100%;}
+
+  /* ===== Header ===== */
+  .topbar{background:rgba(243,241,236,.92);backdrop-filter:blur(8px);position:sticky;top:0;z-index:100;border-bottom:1px solid var(--border);}
+  .nav-wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 22px;}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand-mark{width:46px;height:46px;border-radius:12px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;}
+  .brand-mark svg{width:24px;height:24px;stroke:var(--ember);}
+  .brand-title{display:block;font-size:.72rem;color:var(--muted);}
+  .brand strong{font-size:1.1rem;}
+  .nav{display:flex;gap:26px;}
+  .nav a{font-weight:600;font-size:.95rem;position:relative;padding:6px 2px;}
+  .nav a::after{content:"";position:absolute;right:0;bottom:0;width:0;height:2px;background:var(--ember);transition:width .2s ease;}
+  .nav a:hover::after{width:100%;}
+  .header-actions{display:flex;align-items:center;gap:12px;}
+  .call-pill{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--border);padding:9px 16px;border-radius:999px;font-weight:700;font-size:.88rem;}
+  .call-pill .icon{width:18px;height:18px;color:var(--ember);}
+  .call-pill:hover{border-color:var(--ember);}
+  .nav-toggle{display:none;background:none;border:none;padding:8px;}
+  .nav-toggle .icon{width:26px;height:26px;}
+
+  @media (max-width:960px){
+    .nav{position:absolute;top:100%;right:0;left:0;background:#fff;flex-direction:column;gap:0;border-bottom:1px solid var(--border);max-height:0;overflow:hidden;transition:max-height .25s ease;}
+    .nav.open{max-height:400px;}
+    .nav a{padding:16px 22px;border-bottom:1px solid var(--border);}
+    .nav a::after{display:none;}
+    .nav-toggle{display:block;}
+    .call-pill span{display:none;}
+  }
+
+  /* ===== Hero ===== */
+  .hero{padding:64px 0 80px;overflow:hidden;}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:var(--ember-soft);color:var(--ember-dark);padding:7px 16px;border-radius:999px;font-size:.85rem;font-weight:700;margin-bottom:22px;}
+  .badge .dot{width:7px;height:7px;border-radius:50%;background:var(--ember);}
+  .hero-content h1{font-size:clamp(1.9rem,3.6vw,2.7rem);line-height:1.5;font-weight:800;margin-bottom:20px;}
+  .hero-content h1 em{font-style:normal;color:var(--ember);}
+  .hero-content > p{color:var(--muted);font-size:1.05rem;max-width:520px;margin-bottom:30px;}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:38px;}
+  .hero-stats{display:flex;gap:32px;flex-wrap:wrap;}
+  .hero-stats li{display:flex;flex-direction:column;}
+  .hero-stats strong{font-size:1.5rem;font-weight:800;}
+  .hero-stats span{color:var(--muted);font-size:.83rem;}
+
+  /* Gauge visual */
+  .gauge-wrap{position:relative;background:var(--steel);border-radius:24px;padding:34px 28px 28px;box-shadow:var(--shadow);}
+  .gauge-top{display:flex;justify-content:space-between;align-items:center;color:#fff;margin-bottom:10px;}
+  .gauge-top .live{display:flex;align-items:center;gap:6px;font-size:.82rem;color:#9be3ea;}
+  .gauge-top .live::before{content:"";width:7px;height:7px;border-radius:50%;background:#26e08a;}
+  .gauge-title{color:#fff;font-weight:700;font-size:.95rem;}
+  .gauge-svg{width:100%;height:auto;margin:8px 0 4px;}
+  .gauge-caption{text-align:center;color:#c7ccd6;font-size:.8rem;margin-bottom:18px;}
+  .device-list{display:flex;flex-direction:column;gap:10px;}
+  .device-item{display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:11px;padding:12px 15px;}
+  .device-item .dname{display:flex;align-items:center;gap:10px;color:#e7e9ee;font-size:.9rem;font-weight:600;}
+  .device-item .dname .icon{width:19px;height:19px;color:var(--frost);}
+  .device-item strong{font-size:.8rem;padding:5px 10px;border-radius:999px;}
+  .status-done{background:rgba(38,224,138,.15);color:#4fe3a3;}
+  .status-progress{background:rgba(255,95,46,.15);color:#ff9a76;}
+  .status-wait{background:rgba(255,255,255,.1);color:#c7ccd6;}
+
+  @media (max-width:960px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-grid{gap:36px;}
+  }
+
+  /* ===== Section heading ===== */
+  .eyebrow{color:var(--ember-dark);font-weight:700;font-size:.88rem;}
+  .section-heading{margin-bottom:38px;max-width:640px;}
+  .section-heading h2{font-size:clamp(1.5rem,2.6vw,1.95rem);font-weight:800;margin-top:8px;}
+  .section-heading p{color:var(--muted);margin-top:12px;}
+  .section-heading.center{margin-inline:auto;text-align:center;}
+
+  /* ===== Services ===== */
+  .services{padding:78px 0;}
+  .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .service-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px;transition:border-color .2s ease,transform .2s ease;}
+  .service-card:hover{border-color:var(--ember);transform:translateY(-4px);}
+  .service-card .icon-chip{width:52px;height:52px;border-radius:13px;background:var(--ember-soft);display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+  .service-card .icon-chip .icon{color:var(--ember-dark);width:26px;height:26px;}
+  .service-card h3{font-size:1.1rem;font-weight:700;margin-bottom:8px;}
+  .service-card p{color:var(--muted);font-size:.92rem;}
+
+  @media (max-width:960px){.cards-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:600px){.cards-grid{grid-template-columns:1fr;}}
+
+  /* ===== Parts & equipment (new section) ===== */
+  .parts{padding:78px 0;background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+  .parts-note{display:flex;align-items:flex-start;gap:12px;background:var(--frost-soft);border:1px solid rgba(31,168,184,.25);border-radius:13px;padding:16px 18px;margin-bottom:34px;max-width:760px;}
+  .parts-note .icon{color:var(--frost);width:22px;height:22px;margin-top:2px;}
+  .parts-note p{font-size:.92rem;color:var(--ink);}
+  .parts-list{display:grid;grid-template-columns:1fr 1fr;gap:0 32px;}
+  .part-row{display:flex;align-items:center;gap:14px;padding:16px 0;border-bottom:1px solid var(--border);}
+  .part-row .icon-chip{width:44px;height:44px;flex-shrink:0;border-radius:11px;background:var(--frost-soft);display:flex;align-items:center;justify-content:center;}
+  .part-row .icon-chip .icon{color:var(--frost);width:22px;height:22px;}
+  .part-row h4{font-size:.98rem;font-weight:700;}
+  .part-row span{display:block;color:var(--muted);font-size:.83rem;margin-top:2px;}
+
+  @media (max-width:760px){.parts-list{grid-template-columns:1fr;}}
+
+  /* ===== About ===== */
+  .about{padding:78px 0;}
+  .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:52px;align-items:center;}
+  .about-visual{background:var(--ink);border-radius:22px;aspect-ratio:4/3;position:relative;display:flex;align-items:flex-end;padding:24px;overflow:hidden;}
+  .about-visual::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 25% 25%,rgba(255,95,46,.35),transparent 55%),radial-gradient(circle at 75% 75%,rgba(31,168,184,.35),transparent 55%);}
+  .about-badge{position:relative;background:#fff;color:var(--ink);padding:12px 18px;border-radius:12px;font-weight:700;font-size:.9rem;display:flex;align-items:center;gap:8px;}
+  .about-badge .icon{width:20px;height:20px;color:var(--ember);}
+  .about-content h2{font-size:clamp(1.5rem,2.6vw,1.95rem);font-weight:800;margin:10px 0 18px;}
+  .about-content p{color:var(--muted);margin-bottom:14px;}
+  .about-points{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px;}
+  .about-points div{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--border);padding:10px 16px;border-radius:11px;font-size:.88rem;font-weight:600;}
+  .about-points .icon{width:17px;height:17px;color:var(--frost);}
+
+  @media (max-width:900px){.about-grid{grid-template-columns:1fr;}}
+
+  /* ===== Why us ===== */
+  .why-us{padding:78px 0;background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+  .feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .feature-item{text-align:center;padding:10px;}
+  .feature-item .icon-chip{width:58px;height:58px;border-radius:16px;background:var(--paper);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
+  .feature-item .icon{width:26px;height:26px;color:var(--ember-dark);}
+  .feature-item h3{font-size:1.02rem;font-weight:700;margin-bottom:8px;}
+  .feature-item p{color:var(--muted);font-size:.86rem;}
+
+  @media (max-width:760px){.feature-grid{grid-template-columns:1fr 1fr;}}
+
+  /* ===== CTA ===== */
+  .cta-banner{padding:56px 0;background:var(--ink);}
+  .cta-box{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:22px;color:#fff;}
+  .cta-box .eyebrow{color:#ff9a76;}
+  .cta-box h2{font-size:1.5rem;font-weight:800;margin-top:6px;}
+
+  /* ===== Reviews ===== */
+  .reviews{padding:78px 0;}
+  .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .review-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:26px;}
+  .stars{display:flex;gap:3px;color:#f2a93c;margin-bottom:14px;}
+  .stars .icon{width:16px;height:16px;fill:#f2a93c;stroke:none;}
+  .review-card p{color:var(--muted);margin-bottom:16px;font-size:.94rem;}
+  .review-card h4{font-size:.92rem;font-weight:700;}
+
+  @media (max-width:900px){.review-grid{grid-template-columns:1fr;}}
+
+  /* ===== Contact ===== */
+  .contact{padding:78px 0;background:var(--card);border-top:1px solid var(--border);}
+  .contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:52px;}
+  .contact-info p{color:var(--muted);margin:14px 0 26px;}
+  .contact-info ul{display:flex;flex-direction:column;gap:14px;}
+  .contact-info li{display:flex;align-items:center;gap:10px;font-size:.94rem;}
+  .contact-info li .icon{width:19px;height:19px;color:var(--ember-dark);}
+  .contact-form{background:var(--paper);border:1px solid var(--border);padding:30px;border-radius:var(--radius);display:flex;flex-direction:column;gap:16px;}
+  .input-group{display:flex;flex-direction:column;gap:7px;}
+  .input-group label{font-size:.86rem;font-weight:700;}
+  .input-group input,.input-group select,.input-group textarea{padding:12px 14px;border-radius:9px;border:1px solid var(--border);font-family:inherit;font-size:.94rem;background:#fff;color:var(--ink);}
+  .input-group input:focus,.input-group select:focus,.input-group textarea:focus{outline:none;border-color:var(--ember);}
+  .form-status{font-size:.86rem;min-height:18px;color:var(--frost);font-weight:600;}
+
+  @media (max-width:900px){.contact-grid{grid-template-columns:1fr;}}
+
+  /* ===== Footer ===== */
+  .footer{background:var(--ink);color:rgba(255,255,255,.78);padding:56px 0 0;}
+  .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:30px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.1);}
+  .footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+  .footer-brand .brand-mark{background:#fff;}
+  .footer-brand .brand-mark svg{stroke:var(--ember-dark);}
+  .footer h4{color:#fff;font-size:.98rem;margin-bottom:16px;}
+  .footer ul{display:flex;flex-direction:column;gap:10px;font-size:.88rem;}
+  .footer a:hover{color:var(--ember);}
+  .copyright{text-align:center;padding:20px 0;font-size:.82rem;color:rgba(255,255,255,.5);}
+
+  @media (max-width:760px){.footer-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:480px){.footer-grid{grid-template-columns:1fr;}}
+
+  /* ===== Floating WhatsApp ===== */
+  .floating-whatsapp{position:fixed;bottom:22px;left:22px;background:#25d366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(37,211,102,.45);z-index:200;transition:transform .2s ease;}
+  .floating-whatsapp:hover{transform:scale(1.08);}
+  .floating-whatsapp .icon{width:26px;height:26px;stroke:none;fill:#fff;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container nav-wrap">
+    <div class="brand" aria-label="لوگوی تعمیرگاه خدادادی">
+      <div class="brand-mark">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 11-14h-7l1-6Z"/></svg>
+      </div>
+      <div>
+        <span class="brand-title">تعمیرگاه تخصصی</span>
+        <strong>خدادادی</strong>
+      </div>
+    </div>
+
+    <nav class="nav" id="mainNav" aria-label="منوی اصلی">
+      <a href="#home">خانه</a>
+      <a href="#services">خدمات</a>
+      <a href="#parts">لوازم و قطعات</a>
+      <a href="#about">درباره ما</a>
+      <a href="#why-us">چرا ما؟</a>
+      <a href="#reviews">نظرات</a>
+      <a href="#contact">تماس</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="call-pill" href="tel:+989139930873">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92Z"/></svg>
+        <span>۰۹۱۳۹۹۳۰۸۷۳</span>
+      </a>
+      <a class="btn btn-primary" href="#contact">درخواست سرویس</a>
+      <button class="nav-toggle" id="navToggle" aria-label="باز کردن منو" aria-expanded="false">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="home">
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <span class="badge"><span class="dot"></span>خدمات فوری و ۲۴ ساعته</span>
+        <h1>تخصصی‌ترین تعمیرات <em>پکیج، یخچال، لباسشویی و بخاری</em></h1>
+        <p>با تیم فنی مجرب و مطمئن، مشکل دستگاه‌های شما را در کوتاه‌ترین زمان تشخیص می‌دهیم، بهترین شکل تعمیر می‌کنیم و در صورت نیاز قطعه‌ی اورجینال هم همان‌جا نصب می‌کنیم.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">درخواست سرویس</a>
+          <a class="btn btn-secondary" href="tel:+989139930873">تماس مستقیم</a>
+        </div>
+        <ul class="hero-stats" aria-label="آمار خدمات">
+          <li><strong>۱۲+</strong><span>سال تجربه</span></li>
+          <li><strong>۵۰۰۰+</strong><span>سرویس انجام‌شده</span></li>
+          <li><strong>۴٫۹</strong><span>رضایت مشتری</span></li>
+        </ul>
+      </div>
+
+      <div class="gauge-wrap">
+        <div class="gauge-top">
+          <span class="gauge-title">پنل وضعیت سرویس</span>
+          <span class="live">آنلاین</span>
+        </div>
+        <svg class="gauge-svg" viewBox="0 0 260 140" aria-hidden="true">
+          <path d="M20 130 A110 110 0 0 1 240 130" fill="none" stroke="#39424e" stroke-width="14" stroke-linecap="round"/>
+          <path d="M20 130 A110 110 0 0 1 130 20" fill="none" stroke="#1fa8b8" stroke-width="14" stroke-linecap="round"/>
+          <path d="M130 20 A110 110 0 0 1 240 130" fill="none" stroke="#ff5f2e" stroke-width="14" stroke-linecap="round"/>
+          <circle cx="130" cy="130" r="8" fill="#fff"/>
+          <line x1="130" y1="130" x2="178" y2="66" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <p class="gauge-caption">تعادل بین سرد و گرم — تحت کنترل تیم فنی خدادادی</p>
+        <div class="device-list">
+          <div class="device-item">
+            <span class="dname"><svg class="icon" viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 11-14h-7l1-6Z"/></svg>پکیج</span>
+            <strong class="status-progress">در حال بررسی</strong>
+          </div>
+          <div class="device-item">
+            <span class="dname"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2v20M12 2 8 6M12 2l4 4M12 22l-4-4M12 22l4-4M2 12h20M2 12l4-4M2 12l4 4M22 12l-4-4M22 12l-4 4"/></svg>یخچال</span>
+            <strong class="status-done">تکمیل شد</strong>
+          </div>
+          <div class="device-item">
+            <span class="dname"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="13" r="6"/><path d="M4 4h16M8 4V2M16 4V2"/></svg>لباسشویی</span>
+            <strong class="status-wait">در انتظار قطعه</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="services">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">خدمات ما</span>
+        <h2>حل مشکل دستگاه‌های خانگی شما</h2>
+        <p>از تشخیص عیب تا تعمیر نهایی، با ابزار استاندارد و دانش فنی به‌روز.</p>
+      </div>
+
+      <div class="cards-grid">
+        <article class="service-card">
+          <div class="icon-chip"><svg class="icon" viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 11-14h-7l1-6Z"/></svg></div>
+          <h3>تعمیر پکیج</h3>
+          <p>رفع مشکلات احتراق، افت فشار، نشتی، خاموشی ناگهانی و خرابی سنسورها.</p>
+        </article>
+        <article class="service-card">
+          <div class="icon-chip"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2v20M12 2 8 6M12 2l4 4M12 22l-4-4M12 22l4-4M2 12h20M2 12l4-4M2 12l4 4M22 12l-4-4M22 12l-4 4"/></svg></div>
+          <h3>تعمیر یخچال</h3>
+          <p>تشخیص خرابی کمپرسور، سیستم سرمایش، درزگیر درب و مدار برقی.</p>
+        </article>
+        <article class="service-card">
+          <div class="icon-chip"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="13" r="6"/><path d="M4 4h16M8 4V2M16 4V2"/></svg></div>
+          <h3>تعمیر لباسشویی</h3>
+          <p>بررسی موتور، پمپ تخلیه، سیستم آب‌گیری و برنامه‌ریزی دستگاه.</p>
+        </article>
+        <article class="service-card">
+          <div class="icon-chip"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3c-2 3-4 4.5-4 8a4 4 0 0 0 8 0c0-1-.5-1.8-1-2.5 .2 1-.2 2-1 2.5C15 9 14 6 12 3Z"/></svg></div>
+          <h3>تعمیر بخاری</h3>
+          <p>رفع مشکل روشن‌نشدن، خاموشی ناگهانی و خرابی ترموستات و شمع.</p>
+        </article>
+        <article class="service-card">
+          <div class="icon-chip"><svg class="icon" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.7-3.7a5 5 0 0 1-6.6 6.6L6.3 20.7a2.1 2.1 0 0 1-3-3l8.6-8.6a5 5 0 0 1 6.6-6.6l-3.7 3.7Z"/></svg></div>
+          <h3>نصب و سرویس دوره‌ای</h3>
+          <p>نصب اصولی و سرویس‌های منظم برای افزایش عمر و کارایی دستگاه‌ها.</p>
+        </article>
+        <article class="service-card">
+          <div class="icon-chip"><svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92Z"/></svg></div>
+          <h3>خدمات اضطراری</h3>
+          <p>پاسخ‌گویی سریع و حضور به‌موقع برای جلوگیری از خسارت بیشتر.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="parts" class="parts">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">لوازم و قطعات یدکی</span>
+        <h2>تامین و نصب قطعات اورجینال</h2>
+      </div>
+
+      <div class="parts-note">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <p>علاوه بر تعمیر، قطعات یدکی اورجینال برای پکیج، یخچال، لباسشویی و بخاری را نیز تامین کرده و همان روز نصب می‌کنیم — با ضمانت اصالت کالا.</p>
+      </div>
+
+      <div class="parts-list">
+        <div class="part-row">
+          <div class="icon-chip"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.4"/></svg></div>
+          <div><h4>ترموستات دیجیتال</h4><span>سازگار با اکثر برندهای پکیج و بخاری</span></div>
+        </div>
+        <div class="part-row">
+          <div class="icon-chip"><svg class="icon" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="3"/><path d="M9 9h6v6H9z"/></svg></div>
+          <div><h4>شیر برقی گاز</h4><span>مناسب انواع پکیج دیواری و زمینی</span></div>
+        </div>
+        <div class="part-row">
+          <div class="icon-chip"><svg class="icon" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M12 8v8M8 12h8"/></svg></div>
+          <div><h4>موتور و کمپرسور یخچال</h4><span>اورجینال، با گارانتی نصب</span></div>
+        </div>
+        <div class="part-row">
+          <div class="icon-chip"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12a4 4 0 0 1 4-4"/></svg></div>
+          <div><h4>تسمه و موتور لباسشویی</h4><span>سازگار با اکثر مدل‌های ایرانی و خارجی</span></div>
+        </div>
+        <div class="part-row">
+          <div class="icon-chip"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3c-2 3-4 4.5-4 8a4 4 0 0 0 8 0c0-1-.5-1.8-1-2.5"/></svg></div>
+          <div><h4>شمع و ترموکوپل بخاری</h4><span>افزایش ایمنی و پایداری شعله</span></div>
+        </div>
+        <div class="part-row">
+          <div class="icon-chip"><svg class="icon" viewBox="0 0 24 24"><path d="M4 14a4 4 0 0 0 4 4h8a4 4 0 0 0 0-8H8a4 4 0 0 1 0-8h8a4 4 0 0 1 4 4"/></svg></div>
+          <div><h4>پمپ تخلیه</h4><span>مخصوص لباسشویی و ماشین ظرفشویی</span></div>
+        </div>
+        <div class="part-row">
+          <div class="icon-chip"><svg class="icon" viewBox="0 0 24 24"><path d="M4 12h4l2-7 4 14 2-7h4"/></svg></div>
+          <div><h4>رگولاتور فشار گاز</h4><span>تثبیت فشار ورودی پکیج و بخاری</span></div>
+        </div>
+        <div class="part-row">
+          <div class="icon-chip"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 6v12M11 6v12M15 6v12"/></svg></div>
+          <div><h4>فیلتر و صافی آب پکیج</h4><span>جلوگیری از رسوب و افزایش طول عمر مبدل</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="container about-grid">
+      <div class="about-visual">
+        <span class="about-badge">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+          تضمین کیفیت خدمات
+        </span>
+      </div>
+
+      <div class="about-content">
+        <span class="eyebrow">درباره ما</span>
+        <h2>با تجربه، صداقت و تخصص در خدمت شما هستیم</h2>
+        <p>تعمیرگاه تخصصی خدادادی با سابقه‌ای درخشان در حوزه تعمیرات پکیج، یخچال، لباسشویی و بخاری، خدماتی دقیق، سریع و استاندارد ارائه می‌کند. تیم فنی ما با دانش فنی به‌روز، ابزار مناسب و تجربه عملی، هر نوع خرابی را با دقت بررسی می‌کند.</p>
+        <p>ما به کیفیت کار، قیمت شفاف و رضایت مشتری اهمیت می‌دهیم. با خدادادی، دستگاه شما در بهترین دست‌ها قرار می‌گیرد و خیال شما از بابت تعمیرات و قطعات مصرفی راحت می‌شود.</p>
+        <div class="about-points">
+          <div><svg class="icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>قطعات اورجینال</div>
+          <div><svg class="icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>خدمات در محل</div>
+          <div><svg class="icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>ضمانت کار</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why-us" class="why-us">
+    <div class="container">
+      <div class="section-heading center">
+        <span class="eyebrow">چرا خدادادی؟</span>
+        <h2>مزیت‌های ما نسبت به رقبا</h2>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-item">
+          <div class="icon-chip"><svg class="icon" viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 11-14h-7l1-6Z"/></svg></div>
+          <h3>پاسخ‌گویی سریع</h3>
+          <p>بلافاصله با شما تماس می‌گیریم و زمان مناسب سرویس را هماهنگ می‌کنیم.</p>
+        </div>
+        <div class="feature-item">
+          <div class="icon-chip"><svg class="icon" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.7-3.7a5 5 0 0 1-6.6 6.6L6.3 20.7a2.1 2.1 0 0 1-3-3l8.6-8.6a5 5 0 0 1 6.6-6.6l-3.7 3.7Z"/></svg></div>
+          <h3>تخصص فنی بالا</h3>
+          <p>تکنسین‌های مجرب ما در تعمیر انواع برندها و مدل‌ها تجربه دارند.</p>
+        </div>
+        <div class="feature-item">
+          <div class="icon-chip"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 9.5c0-1.4 1.3-2.5 3-2.5s3 1.1 3 2.5-1.3 2-3 2.5-3 1.1-3 2.5 1.3 2.5 3 2.5 3-1.1 3-2.5"/></svg></div>
+          <h3>قیمت شفاف</h3>
+          <p>بدون هزینه پنهان و با تعرفه‌های منصفانه، خدمات را ارائه می‌دهیم.</p>
+        </div>
+        <div class="feature-item">
+          <div class="icon-chip"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 11 4.6-2.3 8-6 8-11V5l-8-3Z"/></svg></div>
+          <h3>گارانتی معتبر</h3>
+          <p>پس از تعمیر، خدمات ما با ضمانت و پشتیبانی کامل همراه است.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="container cta-box">
+      <div>
+        <span class="eyebrow">خدمات فوری و حرفه‌ای</span>
+        <h2>همین حالا برای تعمیر دستگاه خود اقدام کنید</h2>
+      </div>
+      <a class="btn btn-primary" href="tel:+989139930873">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92Z"/></svg>
+        ۰۹۱۳۹۹۳۰۸۷۳
+      </a>
+    </div>
+  </section>
+
+  <section id="reviews" class="reviews">
+    <div class="container">
+      <div class="section-heading center">
+        <span class="eyebrow">نظرات مشتریان</span>
+        <h2>رضایت مشتریان از خدمات ما</h2>
+      </div>
+
+      <div class="review-grid">
+        <div class="review-card">
+          <div class="stars">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2l3 7 7 .6-5.3 4.6L18 22l-6-3.6L6 22l1.3-7.8L2 9.6 9 9l3-7Z"/></svg>
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2l3 7 7 .6-5.3 4.6L18 22l-6-3.6L6 22l1.3-7.8L2 9.6 9 9l3-7Z"/></svg>
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2l3 7 7 .6-5.3 4.6L18 22l-6-3.6L6 22l1.3-7.8L2 9.6 9 9l3-7Z"/></svg>
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2l3 7 7 .6-5.3 4.6L18 22l-6-3.6L6 22l1.3-7.8L2 9.6 9 9l3-7Z"/></svg>
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2l3 7 7 .6-5.3 4.6L18 22l-6-3.6L6 22l1.3-7.8L2 9.6 9 9l3-7Z"/></svg>
+          </div>
+          <p>خیلی سریع مشکل پکیج ما را پیدا کردند و همان روز تعمیر شد. از مهارت و رفتار خوبشان راضی بودیم.</p>
+          <h4>رضا م.</h4>
+        </div>
+        <div class="review-card">
+          <div class="stars">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2l3 7 7 .6-5.3 4.6L18 22l-6-3.6L6 22l1.3-7.8L2 9.6 9 9l3-7Z"/></svg>
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2l3 7 7 .6-5.3 4.6L18 22l-6-3.6L6 22l1.3-7.8L2 9.6 9 9l3-7Z"/></svg>
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2l3 7 7 .6-5.3 4.6L18 22l-6-3.6L6 22l1.3-7.8L2 9.6 9 9l3-7Z"/></svg>
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2l3 7 7 .6-5.3 4.6L18 22l-6-3.6L6 22l1.3-7.8L2 9.6 9 9l3-7Z"/></svg>
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2l3 7 7 .6-5.3 4.6L18 22l-6-3.6L6 22l1.3-7.8L2 9.6 9 9l3-7Z"/></svg>
+          </div>
+          <p>یخچالم مشکل کمپرسور داشت؛ هم تعمیر کردند و هم قطعه‌ی اورجینالش رو همون‌جا نصب کردند. پیشنهاد می‌کنم.</p>
+          <h4>سارا ا.</h4>
+        </div>
+        <div class="review-card">
+          <div class="stars">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2l3 7 7 .6-5.3 4.6L18 22l-6-3.6L6 22l1.3-7.8L2 9.6 9 9l3-7Z"/></svg>
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2l3 7 7 .6-5.3 4.6L18 22l-6-3.6L6 22l1.3-7.8L2 9.6 9 9l3-7Z"/></svg>
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2l3 7 7 .6-5.3 4.6L18 22l-6-3.6L6 22l1.3-7.8L2 9.6 9 9l3-7Z"/></svg>
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2l3 7 7 .6-5.3 4.6L18 22l-6-3.6L6 22l1.3-7.8L2 9.6 9 9l3-7Z"/></svg>
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2l3 7 7 .6-5.3 4.6L18 22l-6-3.6L6 22l1.3-7.8L2 9.6 9 9l3-7Z"/></svg>
+          </div>
+          <p>لباسشویی خانه‌ام با قیمت مناسب و کار دقیق تعمیر شد. برخورد بسیار خوب و زمان‌بندی عالی داشتند.</p>
+          <h4>حسن ق.</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        <span class="eyebrow">تماس با ما</span>
+        <h2>درخواست سرویس ثبت کنید</h2>
+        <p>برای تعمیر پکیج، یخچال، لباسشویی، بخاری یا سفارش قطعه یدکی، فرم زیر را تکمیل کنید تا در کوتاه‌ترین زمان با شما تماس بگیریم.</p>
+        <ul>
+          <li><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>کرمان، رفسنجان، خیابان مدرس جنوبی، ۱۳ بنفشه ۸ کوچه</li>
+          <li><svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92Z"/></svg>۰۹۱۳۹۹۳۰۸۷۳</li>
+          <li><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>شنبه تا پنج‌شنبه، ۹ تا ۲۱</li>
+        </ul>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <div class="input-group">
+          <label for="name">نام و نام‌خانوادگی</label>
+          <input id="name" name="name" type="text" placeholder="نام شما" required />
+        </div>
+        <div class="input-group">
+          <label for="phone">شماره تماس</label>
+          <input id="phone" name="phone" type="tel" placeholder="۰۹۱۳۹۹۳۰۸۷۳" required />
+        </div>
+        <div class="input-group">
+          <label for="device">نوع دستگاه یا درخواست</label>
+          <select id="device" name="device" required>
+            <option value="">انتخاب کنید</option>
+            <option value="پکیج">پکیج</option>
+            <option value="یخچال">یخچال</option>
+            <option value="لباسشویی">لباسشویی</option>
+            <option value="بخاری">بخاری</option>
+            <option value="قطعات یدکی">لوازم و قطعات یدکی</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="address">آدرس</label>
+          <input id="address" name="address" type="text" placeholder="آدرس دقیق شما" />
+        </div>
+        <div class="input-group">
+          <label for="message">توضیح مشکل</label>
+          <textarea id="message" name="message" rows="4" placeholder="مشکل دستگاه یا قطعه‌ی مورد نیاز را توضیح دهید"></textarea>
+        </div>
+        <div class="form-status" id="formStatus" aria-live="polite"></div>
+        <button type="submit" class="btn btn-primary btn-block">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7Z"/></svg>
+          ارسال به واتساپ
+        </button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="footer-brand">
+        <div class="brand-mark"><svg class="icon" viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 11-14h-7l1-6Z"/></svg></div>
+        <div>
+          <span class="brand-title">تعمیرگاه تخصصی</span>
+          <strong>خدادادی</strong>
+        </div>
+      </div>
+      <p>تخصص در تعمیرات پکیج، یخچال، لباسشویی و بخاری، به‌همراه تامین قطعات یدکی اورجینال.</p>
+    </div>
+    <div>
+      <h4>خدمات</h4>
+      <ul>
+        <li>تعمیر پکیج</li>
+        <li>تعمیر یخچال</li>
+        <li>تعمیر لباسشویی</li>
+        <li>تعمیر بخاری</li>
+        <li><a href="#parts">لوازم و قطعات</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>ساعات کاری</h4>
+      <ul>
+        <li>شنبه تا پنج‌شنبه</li>
+        <li>۹:۰۰ تا ۲۱:۰۰</li>
+        <li>خدمات اضطراری</li>
+      </ul>
+    </div>
+    <div>
+      <h4>تماس</h4>
+      <ul>
+        <li><a href="tel:+989139930873">۰۹۱۳۹۹۳۰۸۷۳</a></li>
+        <li><a href="mailto:khodadady85@gmail.com">khodadady85@gmail.com</a></li>
+        <li>اینستاگرام / تلگرام</li>
+      </ul>
+    </div>
+  </div>
+  <div class="copyright">© ۱۴۰۳ تعمیرگاه تخصصی خدادادی | همه حقوق محفوظ است.</div>
+</footer>
+
+<a class="floating-whatsapp" href="https://wa.me/989139930873?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D8%B3%D8%B1%D9%88%DB%8C%D8%B3%20%D9%85%DB%8C%E2%80%8C%D8%AE%D9%88%D8%A7%D9%87%D9%85." target="_blank" aria-label="تماس در واتساپ">
+  <svg class="icon" viewBox="0 0 24 24"><path d="M20.5 3.5A11 11 0 0 0 3.6 17.4L2 22l4.7-1.6A11 11 0 1 0 20.5 3.5Zm-8.5 17a9 9 0 0 1-4.6-1.3l-.3-.2-3.3 1.1 1.1-3.2-.2-.3A9 9 0 1 1 12 20.5Zm5-6.7c-.3-.1-1.6-.8-1.8-.9-.2-.1-.4-.1-.6.1s-.7.9-.9 1.1-.3.2-.6.1a7.3 7.3 0 0 1-2.1-1.3 8 8 0 0 1-1.5-1.9c-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.2-.5s0-.4-.1-.5-.6-1.5-.8-2c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.6 1 2.8.1.2 1.8 2.8 4.4 3.9a15 15 0 0 0 1.5.6c.6.2 1.2.2 1.6.1a2.7 2.7 0 0 0 1.8-1.3c.2-.4.2-.7.1-.8Z"/></svg>
+</a>
+
+<script>
+  (function(){
+    var toggle = document.getElementById('navToggle');
+    var nav = document.getElementById('mainNav');
+    toggle.addEventListener('click', function(){
+      var isOpen = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+    nav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    var form = document.getElementById('contactForm');
+    var status = document.getElementById('formStatus');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var name = document.getElementById('name').value.trim();
+      var phone = document.getElementById('phone').value.trim();
+      var device = document.getElementById('device').value;
+      var address = document.getElementById('address').value.trim();
+      var message = document.getElementById('message').value.trim();
+
+      if(!name || !phone || !device){
+        status.textContent = 'لطفاً نام، شماره تماس و نوع درخواست را وارد کنید.';
+        status.style.color = '#ff5f2e';
+        return;
+      }
+
+      var text = 'درخواست سرویس جدید%0A' +
+        'نام: ' + name + '%0A' +
+        'تلفن: ' + phone + '%0A' +
+        'نوع درخواست: ' + device + '%0A' +
+        (address ? 'آدرس: ' + address + '%0A' : '') +
+        (message ? 'توضیح: ' + message : '');
+
+      status.textContent = 'در حال انتقال به واتساپ...';
+      status.style.color = '#1fa8b8';
+      window.open('https://wa.me/989139930873?text=' + encodeURIComponent(
+        'درخواست سرویس جدید\n' +
+        'نام: ' + name + '\n' +
+        'تلفن: ' + phone + '\n' +
+        'نوع درخواست: ' + device + '\n' +
+        (address ? 'آدرس: ' + address + '\n' : '') +
+        (message ? 'توضیح: ' + message : '')
+      ), '_blank');
+    });
+  })();
+</script>
+
+</body>
+</html>
