@@ -657,9 +657,10 @@
     <h3>یک قدم تا ارسال درخواست</h3>
     <p id="eitaaModalText">
       پیام درخواست شما <strong>کپی شد</strong>. صفحه‌ی چت ایتا الان باز می‌شود.
-      لطفاً داخل چت روی فیلد نوشتن پیام <strong>ضربه بزنید</strong> و گزینه‌ی
-      <strong>«جای‌گذاری» (Paste)</strong> را انتخاب کنید (در کامپیوتر: Ctrl+V)، سپس دکمه‌ی
-      <strong>ارسال</strong> را بزنید. بدون این کار، درخواست شما ثبت نمی‌شود.
+      لطفاً داخل چت روی فیلد نوشتن پیام <strong>ضربه بزنید و کمی نگه دارید</strong> تا گزینه‌ی
+      <strong>«جای‌گذاری» / «Paste»</strong> ظاهر شود و آن را بزنید
+      <span style="display:block;color:var(--muted);font-size:.85rem;margin-top:4px;">(روی کامپیوتر: کلیک راست → Paste، یا کلید‌های Ctrl+V)</span>
+      سپس دکمه‌ی <strong>ارسال</strong> را بزنید. بدون این کار، درخواست شما ثبت نمی‌شود.
     </p>
     <div class="eitaa-modal-msgbox" id="eitaaModalMsgBox"></div>
     <div class="eitaa-modal-actions">
@@ -743,8 +744,8 @@
       eitaaModalMsgBox.textContent = currentMessage;
       copyCurrentMessage(function(copied){
         eitaaModalText.innerHTML = copied
-          ? 'پیام درخواست شما <strong>کپی شد</strong>. صفحه‌ی چت ایتا الان باز می‌شود. لطفاً داخل چت روی فیلد نوشتن پیام <strong>ضربه بزنید</strong> و گزینه‌ی <strong>«جای‌گذاری» (Paste)</strong> را انتخاب کنید (در کامپیوتر: Ctrl+V)، سپس دکمه‌ی <strong>ارسال</strong> را بزنید. بدون این کار، درخواست شما ثبت نمی‌شود.'
-          : 'کپی خودکار انجام نشد. لطفاً متن زیر را دستی انتخاب و کپی کنید، سپس در چت ایتا Paste کرده و دکمه‌ی <strong>ارسال</strong> را بزنید. بدون این کار، درخواست شما ثبت نمی‌شود.';
+          ? 'پیام درخواست شما <strong>کپی شد</strong>. صفحه‌ی چت ایتا الان باز می‌شود. لطفاً داخل چت روی فیلد نوشتن پیام <strong>ضربه بزنید و کمی نگه دارید</strong> تا گزینه‌ی <strong>«جای‌گذاری» / «Paste»</strong> ظاهر شود و آن را بزنید <span style="display:block;color:var(--muted);font-size:.85rem;margin-top:4px;">(روی کامپیوتر: کلیک راست ← Paste، یا Ctrl+V)</span> سپس دکمه‌ی <strong>ارسال</strong> را بزنید. بدون این کار، درخواست شما ثبت نمی‌شود.'
+          : 'کپی خودکار انجام نشد. لطفاً متن پایین را با نگه‌داشتن انگشت روی آن انتخاب و کپی کنید (یا روی کامپیوتر: انتخاب متن + Ctrl+C)، سپس در چت ایتا Paste کرده و دکمه‌ی <strong>ارسال</strong> را بزنید. بدون این کار، درخواست شما ثبت نمی‌شود.';
         eitaaModalOverlay.classList.add('show');
       });
     });
