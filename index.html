@@ -669,7 +669,7 @@
 
 <div class="eitaa-modal-overlay" id="eitaaModalOverlay">
   <div class="eitaa-modal">
-    <div class="eitaa-modal-icon">
+    <div class="eitaa-modal-icon" id="eitaaModalIconWrap">
       <svg class="icon" viewBox="0 0 24 24" style="stroke:none;width:30px;height:30px;"><text x="12" y="17.5" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-weight="700" font-size="18" fill="#ff5f2e">e</text></svg>
     </div>
     <h3>یک قدم تا ارسال درخواست</h3>
@@ -749,6 +749,9 @@
     var eitaaModalMsgBox = document.getElementById('eitaaModalMsgBox');
     var eitaaModalCopyAgain = document.getElementById('eitaaModalCopyAgain');
     var eitaaModalContinue = document.getElementById('eitaaModalContinue');
+    var eitaaModalIconWrap = document.getElementById('eitaaModalIconWrap');
+    var eitaaIconSvg = '<svg class="icon" viewBox="0 0 24 24" style="stroke:none;width:30px;height:30px;"><text x="12" y="17.5" text-anchor="middle" font-family="Georgia,\'Times New Roman\',serif" font-style="italic" font-weight="700" font-size="18" fill="#ff5f2e">e</text></svg>';
+    var rubikaIconSvg = '<svg class="icon" viewBox="0 0 24 24" style="stroke:none;width:30px;height:30px;"><polygon points="12,5 18,8 12,11 6,8" fill="#6b3fa0"/><polygon points="6,8 12,11 12,18 6,15" fill="#8e1e42"/><polygon points="18,8 12,11 12,18 18,15" fill="#1cab8f"/></svg>';
     var pasteTargetUrl = '';
     var pasteTargetColor = '#ff5f2e';
     var pasteTargetName = 'ایتا';
@@ -761,12 +764,15 @@
       }
     }
 
-    function openPasteModal(url, color, appName){
+    function openPasteModal(url, color, appName, iconHtml, iconBg){
       if(!currentMessage) return;
       pasteTargetUrl = url;
       pasteTargetColor = color;
       pasteTargetName = appName;
       eitaaModalContinue.style.background = color;
+      eitaaModalContinue.textContent = 'باشه، برو به ' + appName;
+      eitaaModalIconWrap.innerHTML = iconHtml;
+      eitaaModalIconWrap.style.background = iconBg;
       eitaaModalMsgBox.textContent = currentMessage;
       copyCurrentMessage(function(copied){
         eitaaModalText.innerHTML = copied
@@ -777,11 +783,11 @@
     }
 
     eitaaBtn.addEventListener('click', function(){
-      openPasteModal('https://eitaa.com/khodadaditaamir', '#ff5f2e', 'ایتا');
+      openPasteModal('https://eitaa.com/khodadaditaamir', '#ff5f2e', 'ایتا', eitaaIconSvg, 'rgba(255,95,46,.12)');
     });
 
     rubikaBtn.addEventListener('click', function(){
-      openPasteModal('https://rubika.ir/khidadadihossein', '#6b3fa0', 'روبیکا');
+      openPasteModal('https://rubika.ir/khidadadihossein', '#6b3fa0', 'روبیکا', rubikaIconSvg, 'rgba(107,63,160,.12)');
     });
 
     eitaaModalCopyAgain.addEventListener('click', function(){
