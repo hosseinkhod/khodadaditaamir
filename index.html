@@ -235,6 +235,16 @@
   .floating-whatsapp:hover{transform:scale(1.08);}
   .floating-whatsapp .icon{width:26px;height:26px;stroke:none;fill:#fff;}
 
+  /* ===== Eitaa instruction modal ===== */
+  .eitaa-modal-overlay{display:none;position:fixed;inset:0;background:rgba(20,24,31,.55);z-index:500;align-items:center;justify-content:center;padding:20px;}
+  .eitaa-modal-overlay.show{display:flex;}
+  .eitaa-modal{background:#fff;border-radius:18px;padding:28px 26px;max-width:420px;width:100%;box-shadow:0 20px 50px rgba(20,24,31,.25);text-align:center;}
+  .eitaa-modal-icon{width:56px;height:56px;border-radius:50%;background:rgba(26,132,199,.12);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;}
+  .eitaa-modal h3{font-size:1.15rem;font-weight:800;margin-bottom:12px;}
+  .eitaa-modal p{color:var(--muted);font-size:.92rem;text-align:right;line-height:2;margin-bottom:14px;}
+  .eitaa-modal-msgbox{background:var(--paper);border:1px dashed var(--border);border-radius:10px;padding:12px 14px;font-size:.82rem;color:var(--ink);text-align:right;white-space:pre-wrap;max-height:120px;overflow-y:auto;margin-bottom:18px;}
+  .eitaa-modal-actions{display:flex;flex-direction:column;gap:10px;}
+
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
     *{transition:none !important;}
@@ -635,9 +645,29 @@
   <div class="copyright">© ۱۴۰۳ تعمیرگاه تخصصی خدادادی | همه حقوق محفوظ است.</div>
 </footer>
 
-<a class="floating-whatsapp" href="https://eitaa.com/+989139930873" target="_blank" aria-label="تماس در ایتا" style="background:#1a84c7;box-shadow:0 10px 24px rgba(26,132,199,.45);">
+<a class="floating-whatsapp" href="https://eitaa.com/khodadaditaamir" target="_blank" aria-label="تماس در ایتا" style="background:#1a84c7;box-shadow:0 10px 24px rgba(26,132,199,.45);">
   <svg class="icon" viewBox="0 0 24 24" style="stroke:#fff;fill:none;stroke-width:1.8;"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7Z"/></svg>
 </a>
+
+<div class="eitaa-modal-overlay" id="eitaaModalOverlay">
+  <div class="eitaa-modal">
+    <div class="eitaa-modal-icon">
+      <svg class="icon" viewBox="0 0 24 24" style="stroke:#1a84c7;width:30px;height:30px;"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7Z"/></svg>
+    </div>
+    <h3>یک قدم تا ارسال درخواست</h3>
+    <p id="eitaaModalText">
+      پیام درخواست شما <strong>کپی شد</strong>. صفحه‌ی چت ایتا الان باز می‌شود.
+      لطفاً داخل چت روی فیلد نوشتن پیام <strong>ضربه بزنید</strong> و گزینه‌ی
+      <strong>«جای‌گذاری» (Paste)</strong> را انتخاب کنید (در کامپیوتر: Ctrl+V)، سپس دکمه‌ی
+      <strong>ارسال</strong> را بزنید. بدون این کار، درخواست شما ثبت نمی‌شود.
+    </p>
+    <div class="eitaa-modal-msgbox" id="eitaaModalMsgBox"></div>
+    <div class="eitaa-modal-actions">
+      <button type="button" class="btn btn-secondary" id="eitaaModalCopyAgain">کپی مجدد پیام</button>
+      <button type="button" class="btn btn-primary" id="eitaaModalContinue" style="background:#1a84c7;">باشه، برو به ایتا</button>
+    </div>
+  </div>
+</div>
 
 <script>
   (function(){
@@ -694,20 +724,47 @@
       window.open('https://wa.me/989139930873?text=' + encodeURIComponent(currentMessage), '_blank');
     });
 
+    var eitaaModalOverlay = document.getElementById('eitaaModalOverlay');
+    var eitaaModalText = document.getElementById('eitaaModalText');
+    var eitaaModalMsgBox = document.getElementById('eitaaModalMsgBox');
+    var eitaaModalCopyAgain = document.getElementById('eitaaModalCopyAgain');
+    var eitaaModalContinue = document.getElementById('eitaaModalContinue');
+
+    function copyCurrentMessage(cb){
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(currentMessage).then(function(){ cb(true); }).catch(function(){ cb(false); });
+      } else {
+        cb(false);
+      }
+    }
+
     eitaaBtn.addEventListener('click', function(){
       if(!currentMessage) return;
-      function openEitaa(copied){
-        status.textContent = copied
-          ? 'پیام کپی شد. صفحه‌ی ایتا باز شد — در چت Paste (Ctrl+V) کرده و ارسال کنید.'
-          : 'صفحه‌ی ایتا باز شد. لطفاً این پیام را خودتان کپی و ارسال کنید:\n' + currentMessage;
-        status.style.color = '#1a84c7';
-        window.open('https://eitaa.com/+989139930873', '_blank');
-      }
-      if(navigator.clipboard && navigator.clipboard.writeText){
-        navigator.clipboard.writeText(currentMessage).then(function(){ openEitaa(true); }).catch(function(){ openEitaa(false); });
-      } else {
-        openEitaa(false);
-      }
+      eitaaModalMsgBox.textContent = currentMessage;
+      copyCurrentMessage(function(copied){
+        eitaaModalText.innerHTML = copied
+          ? 'پیام درخواست شما <strong>کپی شد</strong>. صفحه‌ی چت ایتا الان باز می‌شود. لطفاً داخل چت روی فیلد نوشتن پیام <strong>ضربه بزنید</strong> و گزینه‌ی <strong>«جای‌گذاری» (Paste)</strong> را انتخاب کنید (در کامپیوتر: Ctrl+V)، سپس دکمه‌ی <strong>ارسال</strong> را بزنید. بدون این کار، درخواست شما ثبت نمی‌شود.'
+          : 'کپی خودکار انجام نشد. لطفاً متن زیر را دستی انتخاب و کپی کنید، سپس در چت ایتا Paste کرده و دکمه‌ی <strong>ارسال</strong> را بزنید. بدون این کار، درخواست شما ثبت نمی‌شود.';
+        eitaaModalOverlay.classList.add('show');
+      });
+    });
+
+    eitaaModalCopyAgain.addEventListener('click', function(){
+      copyCurrentMessage(function(copied){
+        eitaaModalCopyAgain.textContent = copied ? 'کپی شد ✓' : 'کپی نشد — دستی کپی کنید';
+        setTimeout(function(){ eitaaModalCopyAgain.textContent = 'کپی مجدد پیام'; }, 1800);
+      });
+    });
+
+    eitaaModalContinue.addEventListener('click', function(){
+      eitaaModalOverlay.classList.remove('show');
+      status.textContent = 'صفحه‌ی ایتا باز شد — یادتان نرود پیام را Paste و ارسال کنید.';
+      status.style.color = '#1a84c7';
+      window.open('https://eitaa.com/khodadaditaamir', '_blank');
+    });
+
+    eitaaModalOverlay.addEventListener('click', function(e){
+      if(e.target === eitaaModalOverlay){ eitaaModalOverlay.classList.remove('show'); }
     });
   })();
 </script>
